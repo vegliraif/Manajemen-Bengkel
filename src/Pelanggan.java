@@ -1,88 +1,39 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class RiwayatServis {
-    private Kendaraan kendaraan;
-    private Pelanggan pelanggan;
-    private ArrayList<Servis> daftarServis;
+public class Pelanggan {
+    private String nama;
+    private String telepon;
 
     // Constructor
-    public RiwayatServis(Kendaraan kendaraan, Pelanggan pelanggan) {
-        this.kendaraan = kendaraan;
-        this.pelanggan = pelanggan;
-        this.daftarServis = new ArrayList<>();
+    public Pelanggan(String nama, String telepon) {
+        this.nama = nama;
+        this.telepon = telepon;
     }
 
     // Getter dan Setter
-    public Kendaraan getKendaraan() {
-        return kendaraan;
+    public String getNama() {
+        return nama;
     }
 
-    public void setKendaraan(Kendaraan kendaraan) {
-        this.kendaraan = kendaraan;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public Pelanggan getPelanggan() {
-        return pelanggan;
+    public String getTelepon() {
+        return telepon;
     }
 
-    public void setPelanggan(Pelanggan pelanggan) {
-        this.pelanggan = pelanggan;
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
     }
 
-    public ArrayList<Servis> getDaftarServis() {
-        return daftarServis;
-    }
-
-    public void tambahServis(Servis servis) {
-        daftarServis.add(servis);
-    }
-
-    public void inputServis() {
-        Scanner scanner = new Scanner(System.in); // Scanner diinisialisasi di sini
-        System.out.print("\nBerapa layanan servis yang ingin ditambahkan? ");
-        int jumlahServis = scanner.nextInt();
-        scanner.nextLine(); // Membersihkan buffer
-
-        for (int i = 0; i < jumlahServis; i++) {
-            System.out.print("Layanan Servis (Servis Rutin, Ganti Oli, Mesin, Transmisi, Kaki kaki) " + (i + 1) + ": ");
-            String namaServis = scanner.nextLine();
-            System.out.print("Masukkan Biaya Servis " + (i + 1) + " : ");
-            String inputBiaya = scanner.nextLine();
-
-            double biayaServis;
-            if (inputBiaya.equalsIgnoreCase("Gratis") || inputBiaya.equalsIgnoreCase("Free")) {
-                biayaServis = 0; // Biaya gratis
-            } else {
-                biayaServis = Double.parseDouble(inputBiaya);
-            }
-
-            tambahServis(new Servis(namaServis, biayaServis));
-        }
-    }
-
-    public void tampilkanRiwayat() {
-        System.out.println("\n=== Riwayat Servis ===");
-        System.out.println("Nama: " + pelanggan.getNama());
-        System.out.println("Telepon: " + pelanggan.getTelepon()); // Menampilkan nomor telepon
-        System.out.println("Kendaraan: " + kendaraan.getMerk() + " " + kendaraan.getModel());
-        System.out.println("Nopol: " + kendaraan.getPlatNomor());
-        System.out.println("Jumlah Layanan Servis: " + daftarServis.size());
-
-        double totalBiaya = 0;
-
-        for (Servis servis : daftarServis) {
-            String biayaOutput;
-            if (servis.getBiayaServis() == 0) {
-                biayaOutput = "Gratis"; // Jika biaya gratis
-            } else {
-                biayaOutput = "Rp " + (servis.getBiayaServis() % 1 == 0 ? (int) servis.getBiayaServis() : String.format("%.2f", servis.getBiayaServis())); // Menghilangkan .0
-            }
-            System.out.println("Nama Servis: " + servis.getNamaServis() + " (" + biayaOutput + ")");
-            totalBiaya += servis.getBiayaServis();
-        }
-
-        // Menampilkan total biaya tanpa desimal jika bilangan bulat
-        System.out.println("Total Biaya: Rp " + (totalBiaya % 1 == 0 ? (int) totalBiaya : String.format("%.2f", totalBiaya)));
+    public static Pelanggan inputPelanggan() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n=== Input Data Pelanggan ===");
+        System.out.print("Masukkan Nama: ");
+        String nama = scanner.nextLine();
+        System.out.print("Masukkan Telepon: ");
+        String telepon = scanner.nextLine();
+        return new Pelanggan(nama, telepon);
     }
 }
