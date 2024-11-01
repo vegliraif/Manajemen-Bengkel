@@ -28,11 +28,6 @@ public class Servis {
 
     @Override
     public String toString() {
-        // Format biayaServis sebagai mata uang tanpa desimal jika merupakan bilangan bulat
-        if (biayaServis % 1 == 0) {
-            return namaServis + " (Rp " + (int) biayaServis + ")";
-        } else {
-            return namaServis + " (Rp " + biayaServis + ")";
-        }
+        return namaServis + " (Rp " + (biayaServis % 1 == 0 ? (int) biayaServis : biayaServis) + ")";
     }
 }
