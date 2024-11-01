@@ -5,7 +5,6 @@ public class Mobil extends Kendaraan {
 
     public Mobil(String platNomor, String merk, String model) {
         super(platNomor, merk, model);
-        // jumlahKursi dihapus sesuai permintaan
     }
 
     // Getter dan Setter
@@ -24,7 +23,6 @@ public class Mobil extends Kendaraan {
         String merk = scanner.nextLine();
         System.out.print("Masukkan Model: ");
         String model = scanner.nextLine();
-        // Jumlah kursi dihapus
         return new Mobil(platNomor, merk, model);
     }
 
