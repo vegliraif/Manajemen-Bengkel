@@ -45,9 +45,9 @@ public class Kendaraan {
         scanner.nextLine(); // Membersihkan buffer setelah nextInt
 
         if (pilihanKendaraan == 1) {
-            return Mobil.inputMobil(scanner); // Memanggil inputMobil() dari kelas Mobil
+            return Mobil.inputMobil(scanner); 
         } else {
-            return Motor.inputMotor(scanner); // Memanggil inputMotor() dari kelas Motor
+            return Motor.inputMotor(scanner); 
         }
     }
 
