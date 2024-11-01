@@ -12,26 +12,25 @@ public class Kendaraan {
         this.model = model;
     }
 
-    // Getter
+    // Getter dan Setter
     public String getPlatNomor() {
         return platNomor;
+    }
+
+    public void setPlatNomor(String platNomor) {
+        this.platNomor = platNomor;
     }
 
     public String getMerk() {
         return merk;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    // Setter
-    public void setPlatNomor(String platNomor) {
-        this.platNomor = platNomor;
-    }
-
     public void setMerk(String merk) {
         this.merk = merk;
+    }
+
+    public String getModel() {
+        return model;
     }
 
     public void setModel(String model) {
@@ -39,18 +38,16 @@ public class Kendaraan {
     }
 
     public static Kendaraan inputKendaraan() {
-        // Gtry-with-resources -> menutup Scanner secara otomatis
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("\n=== Input Data Kendaraan ===");
-            System.out.print("Apakah kendaraan berupa (1) Mobil atau (2) Motor? ");
-            int pilihanKendaraan = scanner.nextInt();
-            scanner.nextLine(); // Membersihkan buffer setelah nextInt
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n=== Input Data Kendaraan ===");
+        System.out.print("Apakah kendaraan berupa (1) Mobil atau (2) Motor? ");
+        int pilihanKendaraan = scanner.nextInt();
+        scanner.nextLine(); // Membersihkan buffer setelah nextInt
 
-            if (pilihanKendaraan == 1) {
-                return Mobil.inputMobil(); // Memanggil inputMobil() dari kelas Mobil
-            } else {
-                return Motor.inputMotor(); // Memanggil inputMotor() dari kelas Motor
-            }
+        if (pilihanKendaraan == 1) {
+            return Mobil.inputMobil(scanner); // Memanggil inputMobil() dari kelas Mobil
+        } else {
+            return Motor.inputMotor(scanner); // Memanggil inputMotor() dari kelas Motor
         }
     }
 
