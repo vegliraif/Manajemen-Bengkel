@@ -1,16 +1,20 @@
 public class Main {
-    public static void main(String[] args) {
-        // Input Data Pelanggan menggunakan metode inputPelanggan()
-        Pelanggan pelanggan = Pelanggan.inputPelanggan();
+    private static Pelanggan pelanggan;
+    private static Kendaraan kendaraan;
+    private static RiwayatServis riwayatServis;
 
-        // Input Data Kendaraan menggunakan metode inputKendaraan()
-        Kendaraan kendaraan = Kendaraan.inputKendaraan();
+    public static void main(String[] args) {
+        // Mengambil input data pelanggan
+        pelanggan = Pelanggan.inputPelanggan();
+
+        // Input kendaraansdfsdfs
+        kendaraan = Kendaraan.inputKendaraan();
 
         // Buat objek RiwayatServis
-        RiwayatServis riwayatServis = new RiwayatServis(kendaraan, pelanggan);
+        riwayatServis = new RiwayatServis(kendaraan, pelanggan);
 
         // Input Servis melalui metode inputServis di RiwayatServis
-        riwayatServis.inputServis(); 
+        riwayatServis.inputServis();
 
         // Menampilkan Riwayat Servis
         riwayatServis.tampilkanRiwayat();
